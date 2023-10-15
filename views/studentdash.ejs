@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>student</title>
+</head>
+<body class="bg-dark"> 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+      <div class="container">
+          <a class="navbar-brand" href="#">My Mental Wellness</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ml" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="#">Logout</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  
+  <section class="MentalWellNessquestiona">
+      <div class="container my-3">
+        <div class="rounded bg-light">
+          <div class="row justify-content-center align-items-center g-2 my-3">
+            <a href="/questionaire.html" class="d-flex" style="text-decoration: none; color: inherit;">
+              <!-- Text Column -->
+              <div class="col-sm-6 col-lg-8 col-md-8">
+                <div class="card text-center my-3 mx-3">
+                  <div class="card-body">
+                    <h4 class="card-title">Welcome to My Mental Wellness!</h4>
+                    <p class="card-text">Your Path to Better Mental and Physical Health Starts Here.</p>
+                    <a href="/<%=locals.id%>/phq9">
+                        <button class="btn btn-primary" role="button">click here for answering questionaire</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Image Column -->
+              <div class="card justify-content-center align-items-center my-3 mx-3">
+                  <div class="col-sm-6 col-md-4 col-lg-4 d-flex align-items-center justify-content-center">
+                    <img class="img-fluid max-width-100%" src="/images/1.png" alt="aboutphoto">
+                    </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  <section class="container">
+    <div class="card mt-5">
+        <div class="card-body" id="student-report">
+            <!-- Student report will be inserted here -->
+        </div>
+    </div>
+  </section>
+  
+  <!-- footer start -->
+  <footer id="footer" class="mt-2 bg-dark border">
+      <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
+          <div class="copyright justify-content-center align-items-center text-white">
+              &copy; Copyright <strong><span>My Mental Wellness</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits align-items-center justify-content-center  text-white">
+              Designed by <a href="https://bootstrapmade.com/">Bootstrap</a> and <a href="#">My Mental Wellness</a>
+          </div>
+      </div>
+  </footer>
+  <!-- End Footer -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script>
+    // Sample student data in JSON format
+    const studentData = [
+      { id: 1, name: "John Doe", email: "john@example.com", phq9: 4, phq15: 8, gad7: 15 },
+      // Add more student data here if needed
+    ];
+  
+    // Function to display the report for the first student
+    function displayStudentReport() {
+      const student = studentData[0]; // Get the first student (index 0)
+  
+      // Display the report
+      const reportDiv = document.getElementById("student-report");
+      const reportData = generateStudentReport(student);
+  
+      if (reportData) {
+        reportDiv.innerHTML = `
+          <h4>Student Report for ID ${student.id}</h4>
+          <div>${reportData}</div>
+        `;
+      }
+    }
+  
+    // Function to generate a sample report (replace with your own logic)
+    function generateStudentReport(student) {
+      // Replace this with your report generation logic.
+      // For example, you could fetch report data from your server.
+      return `
+        <h1>Your Report</h1>
+        <p>The Patient Health Questionnaire (PHQ) and GAD-7 offer clinicians concise,
+        self-administered screening and diagnostic tools for mental health disorders,
+        which have been field-tested in office practice.
+        The screeners are quick and user-friendly, improving the recognition rate of
+        depression and anxiety and facilitating diagnosis and treatment.
+        Patients receiving intervention should be provided with regular follow-up and
+        tracked for improvement in their PHQ score. The administration of the PHQ for
+        follow-up can be done using phone calls and/or a smartphone application.
+        Results from studies that have analyzed telephonic and electronic
+        administration of the tool have demonstrated that these methods yield similar
+        results to being administered in person.
+        The information that we provide is only intended for informational purposes -
+        this test is not intended as a definitive diagnostic tool. Review the Details
+        section for areas of concern detected by the screening.</p>
+        <br>
+        <h2>Advice</h2>
+        <h4>How to Choose a Therapist</h4>
+        <p>Here are some tips that can help to choose right therapist:</p>
+  
+  <ul>
+    <li>Choose a therapist who feels right for you. It is important for you to feel comfortable opening up to your therapist. In most cases, the race, gender, sexual orientation, religion, or other demographic aspects of therapists are not an issue, but sometimes, preconceived notions or past life experiences can affect our ability to communicate comfortably with certain therapists. For example, a woman who has been sexually assaulted by a man may prefer speaking to a female therapist.</li>
+    <li>Ask your friends or family. If any of your friends or family have ever consulted a therapist, ask them what their experiences were like. Did they like their therapist and was the treatment helpful? These people can be valuable sources of information when deciding on a therapist for yourself.</li>
+    <li>Consider the type of treatment you need. Psychiatrists, psychologists, and therapists can all offer you counseling and advice. However, only medical doctors and psychiatrists can prescribe drugs. If you think that you will need medication, be sure to choose someone who is licensed to prescribe it.</li>
+    <li>Ensure that the therapist's licensing requirements are up to date. One useful place to look for licensed therapists is Psychology Today's Therapist Directory.</li>
+    <li>Ask questions. Before starting therapy, you should ask your potential therapist questions relevant to the treatment: how many sessions you will likely need, what will be the cost of the treatment, and what happens if you decide to abandon your treatment program. Also, ask your therapist about his/her areas of expertise and what his/her qualifications are. Taking the time to ask all these questions can prove to be extremely helpful in finding the right therapist and can prevent you from entering into a situation you are not comfortable with.</li>
+    <li>Be sure that your therapist creates an environment of respect in his/her sessions. If you feel uneasy talking to your therapist or don't feel respected, you are more than likely not consulting the right therapist. Think about finding someone else.</li>
+    <li>Do what it takes to make yourself feel comfortable. There is no shame in being a difficult customer. Remember, you are the one paying for this treatment, so you may as well be sure that you are satisfied with what you get.</li>
+    <li>Ensure that your therapist's moral values are similar to yours. A therapist's role is to guide you in the choices that you make. If your therapist's views are too different, the advice that she/he offers may not make a lot of sense to you. This may make it difficult for you to incorporate this advice into your attitudes and behavior. Therapy, however, is an adversarial process and you shouldn't start looking for a new therapist just because your current therapist challenges your views and attitudes. That's part of his/her job. What is important is the outcome of your sessions. If your therapist is successful in making you think about the choices you make and their outcomes, then you have probably found a therapist that will satisfy your needs.</li>
+  </ul>
+        <br>
+        <h2>Mental Assesment Report</h2>
+  <ul>
+    <li>
+      ${
+        student.phq9 > -1 && student.phq9 < 5
+          ? `You show no signs of depression. You appear to be quite content with yourself and with your life at this time. You may still get sad from time to time, but not to a worrisome extreme.`
+          : student.phq9 > 4 && student.phq9 < 10
+          ? `You show fewer signs of depression. You need to be diagnosed with PHQ-9 frequently, to help you from the depressive disorders.`
+          : student.phq9 > 9 && student.phq9 < 15
+          ? `You show moderate signs of depression. You need to consider a treatment plan like counseling or consulting a therapist and get medication like frequent follow-up and/or pharmacotherapy.`
+          : `You show high signs of depression. You have to consult a therapist for active / immediate initiation of pharmacotherapy and/or psychotherapy.`
+      }
+    </li>
+    <li>
+      ${
+        student.phq15 > -1 && student.phq15 < 5
+          ? `You show no signs of Somatic Symptom Severity. You appear to be quite content with yourself and with your life at this time.`
+          : student.phq15 > 4 && student.phq15 < 10
+          ? `You show fewer signs of Somatic Symptom Severity. You need to be diagnosed with PHQ-15 frequently, to help you from the somatic symptoms.`
+          : student.phq15 > 9 && student.phq15 < 15
+          ? `You show moderate signs of Somatic Symptom Severity. You need to consider a treatment plan like counseling or consulting a therapist and get medication like frequent follow-up and/or pharmacotherapy, to get diagnosed from somatic symptoms.`
+          : `You show high signs of Somatic Symptom Severity. You have to consult a therapist for active / immediate initiation of pharmacotherapy and/or psychotherapy.`
+      }
+    </li>
+    <li>
+      ${
+        student.gad7 > -1 && student.gad7 < 5
+          ? `You show no signs of Generalized Anxiety Disorder. You appear to be quite content with yourself and with your life at this time.`
+          : student.gad7 > 4 && student.gad7 < 10
+          ? `You show fewer signs of Generalized Anxiety Disorder. You need to be diagnosed with GAD-7 frequently, to help you from the anxiety symptoms.`
+          : student.gad7 > 9 && student.gad7 < 15
+          ? `You show moderate signs of Generalized Anxiety Disorder. You need to consider a treatment plan like counseling or consulting a therapist and get medication like frequent follow-up and/or pharmacotherapy, to get diagnosed from anxiety symptoms.`
+          : `You show high signs of Generalized Anxiety Disorder. You have to consult a therapist for active / immediate initiation of pharmacotherapy and/or psychotherapy.`
+      }
+    </li>
+  </ul>
+  
+      `;
+    }
+    // Call the function to display the report on page load
+    displayStudentReport();
+  </script>
+  
+  
+  
+  </body>
+</html>

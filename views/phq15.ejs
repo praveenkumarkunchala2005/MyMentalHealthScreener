@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness Questionnaire phq15</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- phq15 -->
+</head>
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Mental Wellness</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="container mt-5 card">
+            <div class="text-center">
+                <h3>During the past 4 weeks, how much have you been bothered by any of the following problems?</h3>
+                <h5>Please answer the following questions correctly for the better Results:</h5>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <h3 class="text-white">
+                Progress:
+            </h3>
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 33.3%"></div>
+            </div>
+        </div>
+    
+        <form class="container mt-4" method="post">
+            <!-- Question 1 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">1. Stomach pain or discomfort</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">2. Upset stomach or nausea</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 3 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">3. Headache</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q3" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 4 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">4. Back pain</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q4" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 5 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">5. Pain or problems during sexual intercourse</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q5" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 6 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">6. Feeling tired or having low energy</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q6" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q6" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q6" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q6" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 7 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">7. Trouble sleeping</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q7" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q7" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q7" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q7" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 8 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">8. Feeling tired or having low energy</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q8" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q8" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q8" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q8" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 9 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">9. Poor appetite or overeating</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q9" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q9" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q9" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q9" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 10 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">10. Feeling bad about yourself</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q10" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q10" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q10" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q10" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 11 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">11. Trouble concentrating on things</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q11" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q11" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q11" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q11" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 12 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">12. Moving or speaking slowly or too fast</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q12" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q12" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q12" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q12" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 13 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">13. Thoughts that you would be better off dead or of hurting yourself</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q13" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q13" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q13" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q13" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 14 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">14. Other physical problems</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q14" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q14" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q14" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q14" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Question 15 -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">15. Troubling you a lot?</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q15" value="0">
+                                <label class="form-check-label">
+                                    Not bothered at all
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q15" value="1">
+                                <label class="form-check-label">
+                                    Bothered a little
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q15" value="2">
+                                <label class="form-check-label">
+                                    Bothered somewhat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q15" value="3">
+                                <label class="form-check-label">
+                                    Bothered a lot
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- footer start -->
+<footer id="footer" class="mt-2 bg-dark border">
+    <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
+        <div class="copyright justify-content-center align-items-center text-white">
+            &copy; Copyright <strong><span>My Mental Wellness</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits align-items-center justify-content-center  text-white">
+            Designed by <a href="https://bootstrapmade.com/">Bootstrap</a> and <a href="#">My Mental Wellness</a>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+<script>
+    // Get all the radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    
+    // Add event listener to the submit button
+    const submitButton = document.querySelector('button[type="submit"]');
+    // submitButton.addEventListener('click', calculateScore);
+
+    // // Function to calculate and display the PHQ-15 score
+    // function calculateScore() {
+    //     let score = 0;
+
+    //     // Loop through the radio buttons and calculate the score based on their values
+    //     radioButtons.forEach((radioButton) => {
+    //         if (radioButton.checked) {
+    //             score += parseInt(radioButton.value);
+    //         }
+    //     });
+
+    //     // Display the calculated score
+    //     alert(`Your PHQ-15 score is: ${score}`);
+    // }
+</script>
+
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-vp9o/R5HA2X4fGz2lAxS5weZ5z2ENePU4w5U8f+4I5I5ewpiekycw4f3Rv5L5Xdm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-AzKl5Qgb9QhqLMpG8r+YfhAXLR9z5l4rE5nlD+k3XqF5E5/d/8Fk5f5t5S5r5YXf5M" crossorigin="anonymous"></script>
+</body>
+</html>

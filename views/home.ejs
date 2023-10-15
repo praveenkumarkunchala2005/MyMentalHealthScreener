@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="bg-dark"> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Mental Wellness</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="MentalWellNessquestiona">
+    <div class="container my-3">
+      <div class="rounded bg-light">
+        <div class="row justify-content-center align-items-center g-2 my-3">
+          <a href="/questionaire.html" class="d-flex" style="text-decoration: none; color: inherit;">
+            <!-- Text Column -->
+            <div class="col-sm-6 col-lg-8 col-md-8">
+              <div class="card text-center my-3 mx-3">
+                <div class="card-body">
+                  <h4 class="card-title">Welcome to My Mental Wellness!</h4>
+                  <p class="card-text">Your Path to Better Mental and Physical Health Starts Here.</p>
+                  <button class="btn btn-primary" href="/questionaire.html" role="button">click here for answering questionaire</button>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Image Column -->
+            <div class="card justify-content-center align-items-center my-3 mx-3">
+                <div class="col-sm-6 col-md-4 col-lg-4 d-flex align-items-center justify-content-center">
+                    <img src="3997942.png" class="img-fluid max-width-100% w-70%" alt="Personalized Insights">
+                  </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="container">
+  <div class="card mt-5">
+      <div class="card-body" id="student-report">
+          <!-- Student report will be inserted here -->
+      </div>
+  </div>
+</section>
+
+<!-- footer start -->
+<footer id="footer" class="mt-2 bg-dark border">
+    <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
+        <div class="copyright justify-content-center align-items-center text-white">
+            &copy; Copyright <strong><span>My Mental Wellness</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits align-items-center justify-content-center  text-white">
+            Designed by <a href="https://bootstrapmade.com/">Bootstrap</a> and <a href="#">My Mental Wellness</a>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+  // Sample student data in JSON format
+  const studentData = [
+    { id: 1, name: "John Doe", email: "john@example.com" },
+    // Add more student data here if needed
+  ];
+
+  // Function to display the report for the first student
+  function displayStudentReport() {
+    const student = studentData[0]; // Get the first student (index 0)
+
+    // Display the report
+    const reportDiv = document.getElementById("student-report");
+    const reportData = generateStudentReport(student.id); // Call your function to generate the report here
+
+    if (reportData) {
+      reportDiv.innerHTML = `
+        <h4>Student Report for ID ${student.id}</h4>
+        <p>${reportData}</p>
+      `;
+    }
+  }
+
+  // Function to generate a sample report (replace with your own logic)
+  function generateStudentReport(studentId) {
+    // Replace this with your report generation logic.
+    // For example, you could fetch report data from your server.
+    return `This is a sample report for student ID ${studentId}.`;
+  }
+
+  // Call the function to display the report on page load
+  displayStudentReport();
+</script>
+
+</body>
+</html>

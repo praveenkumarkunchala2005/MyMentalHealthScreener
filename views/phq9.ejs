@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mental Health Tracker - PHQ-9</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Mental Wellness</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#s1">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#s3">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/loginsignup.html">Login/Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Content Section: Introduction -->
+<div class="bg-light">
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-capitalize">Mental Health Tracker - PHQ-9</h2>
+                <p>Assess your mental health using the Patient Health Questionnaire-9 (PHQ-9). This tool can help you understand your mental well-being. Please answer the following questions honestly.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content Section: PHQ-9 Questionnaire -->
+<div class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-capitalize">PHQ-9 Questionnaire</h2>
+            <form id="phq9Form" method="post" action="/<%=locals.id%>/phq9" class="justify-content-center align-items-center card">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">1. Little interest or pleasure in doing things</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q1" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q1" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q1" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q1" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 2 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">2. Feeling down, depressed, or hopeless</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q2" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q2" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q2" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q2" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 3 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">3. Trouble falling or staying asleep, or sleeping too much</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q3" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q3" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q3" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q3" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 4 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">4. Feeling tired or having little energy</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q4" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q4" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q4" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q4" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 5 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">5. Poor appetite or overeating</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q5" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q5" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q5" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q5" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 6 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">6. Feeling bad about yourself or that you are a failure or
+                                            have let yourself or your family down</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q6" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q6" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q6" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q6" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 7 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">7. Trouble concentrating on things, such as reading the
+                                            newspaper or watching television</h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q7" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q7" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q7" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q7" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 8 -->
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">8. Moving or speaking so slowly that other people could
+                                            have noticed. Or the opposite being so figety or
+                                            restless that you have been moving around a lot more
+                                            than usual
+                                            </h5>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q8" value="3">
+                                            <label class="form-check-label">
+                                                Not at all
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q8" value="2">
+                                            <label class="form-check-label">
+                                                Several days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q8" value="1">
+                                            <label class="form-check-label">
+                                                More than half the days
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="q8" value="0">
+                                            <label class="form-check-label">
+                                                Nearly every day
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Question 9 -->
+                            <div class="row">
+                                    <div class="col-md-6 offset-md-3">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">9. Thoughts that you would be better off dead, or of
+                                                    hurting yourself</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q9" value="3">
+                                                    <label class="form-check-label">
+                                                        Not at all
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q9" value="2">
+                                                    <label class="form-check-label">
+                                                        Several days
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q9" value="1">
+                                                    <label class="form-check-label">
+                                                        More than half the days
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q9" value="0">
+                                                    <label class="form-check-label">
+                                                        Nearly every day
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                                <!-- Question 10 -->
+                                <div class="row">
+                                    <div class="col-md-6 offset-md-3">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">10. If you checked off any problems, how difficult Not difficult at all
+                                                    have these problems made it for you to do
+                                                    your work, take care of things at home, or get
+                                                    along with other people?</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q10" value="3">
+                                                    <label class="form-check-label">
+                                                        Not difficult at all
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q10" value="2">
+                                                    <label class="form-check-label">
+                                                        Somewhat difficult
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q10" value="1">
+                                                    <label class="form-check-label">
+                                                        Very difficult
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="q10" value="0">
+                                                    <label class="form-check-label">
+                                                        Extremely difficult
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card align-items-center justify-content-center bg-none">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+         </form> 
+         </div> 
+        </div>
+    </div>
+</div>
+
+<!-- Content Section: PHQ-9 Result -->
+<div class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 card" id="phq9Result">
+                <!-- The result will be displayed here after calculation -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="mt-2 bg-dark">
+    <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
+        <div class="copyright justify-content-center align-items-center text-white">
+            &copy; Copyright <strong><span>My Mental Wellness</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits align-items-center justify-content-center  text-white">
+            Designed by <a href="https://bootstrapmade.com/">Bootstrap</a> and <a href="#">My Mental Wellness</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+        <script>
+            // function calculatePHQ9Score() {
+            //     // Get the answers to the questions
+            //     const answers = [
+            //         parseInt(document.querySelector('input[name="q1"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q2"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q3"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q4"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q5"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q6"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q7"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q8"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q9"]:checked').value),
+            //         parseInt(document.querySelector('input[name="q10"]:checked').value)
+            //     ];
+        
+            //     // Calculate the total score
+            //     const totalScore = answers.reduce((a, b) => a + b, 0);
+        
+            //     // Determine the severity of depression
+            //     let severity = '';
+            //     if (totalScore >= 0 && totalScore <= 4) {
+            //         severity = 'Minimal depression';
+            //     } else if (totalScore >= 5 && totalScore <= 9) {
+            //         severity = 'Mild depression';
+            //     } else if (totalScore >= 10 && totalScore <= 14) {
+            //         severity = 'Moderate depression';
+            //     } else if (totalScore >= 15 && totalScore <= 19) {
+            //         severity = 'Moderately severe depression';
+            //     } else {
+            //         severity = 'Severe depression';
+            //     }
+        
+            //     // Display the result
+            //     document.getElementById('phq9Result').innerHTML = `<p>Your PHQ-9 score is ${totalScore}. This indicates ${severity}.</p>`;
+            // }
+        </script>
+        
+</body>
+</html>

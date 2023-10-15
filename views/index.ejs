@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .custom-shape-divider-bottom-1694489467 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .custom-shape-divider-bottom-1694489467 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 134px;
+        }
+
+        .custom-shape-divider-bottom-1694489467 .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<!-- navbar starting -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">My Mental Wellness</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#s1">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/student">School Login/Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/school">Student Login/Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- navbar ending -->
+
+<!--about section starting-->
+<section class="about-section bg-dark text-white position-relative">
+    <div class="container">
+        <div class="position-relative"> <!-- Add this wrapper div -->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 d-flex flex-column justify-content-center text-">
+                    <h2 class="text-capitalize">My Mental Wellness</h2>
+                    <p>Welcome to Mental Health, your trusted companion on the journey to better mental and physical
+                        well-being. Our mission is to empower you with the knowledge and tools needed to harmonize your
+                        mental health and physical fitness.</p>
+                    <div class="text-capitalize">
+                        <a href="/student">
+                         <button class="btn btn-light btn">Login/Signup</button>                           
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center justify-content-center">
+                    <img class="img-fluid max-width-100%" src="images/aboutphoto.png" alt="aboutphoto">
+                </div>
+            </div>
+        </div>
+    </div>
+                <!-- Custom Divider within the about-section -->
+                <div class="custom-shape-divider-bottom-1694489467">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                         preserveAspectRatio="none">
+                        <path
+                            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                            class="shape-fill"></path>
+                    </svg>
+                </div>
+                <!-- Custom Divider End -->
+</section>
+<!--about section ending-->
+
+<!-- Services section -->
+<section class="services bg-white align-items-center" id="s1">
+    <div class="container mt-5">
+        <h1 class="text-capitalize opacity-75%">Services We Offer</h1>
+        <div class="row justify-content-center mt-5">
+            <!-- Service 1 -->
+            <div class="col-md-12 col-lg-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/service1.png" class="card-img-top" alt="Depression Tracking">
+                    <div class="card-body align-items-center justify-content-center">
+                        <h5 class="card-title">Mental Health Assessment:</h5>
+                        <p class="card-text">Our platform offers a range of scientifically validated questionnaires that allow you to regularly assess your mental health. By tracking your mental well-being over time, you can gain insights into patterns and trends, empowering you to make informed decisions about your mental health.</p>
+                        <a href="/mentalhealth-info0.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-md-12 col-lg-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/service2.png" class="card-img-top" alt="Mood Tracker">
+                    <div class="card-body align-items-center justify-content-center">
+                        <h5 class="card-title">Mood Tracker:</h5>
+                        <p class="card-text">Log your daily moods and emotions, helping you identify patterns and triggers that affect your mental health. Our mood tracker provides a visual representation of your emotional journey, enabling you to make informed decisions about your mental well-being.</p>
+                        <a href="/sleeptracker-info.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-12 col-lg-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/service3.svg" class="card-img-top" alt="Sleep Tracker">
+                    <div class="card-body justify-content-center align-items-center">
+                        <h5 class="card-title">Sleep Tracker:</h5>
+                        <p class="card-text">Quality sleep is essential for both mental and physical health. Use our sleep tracker to monitor your sleep patterns, track your sleep duration, and identify areas for improvement. A good night's sleep can be a game-changer for your overall well-being.</p>
+                        <a href="/sleepinfo.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-12 col-lg-3 mb-4">
+                <div class="card h-100">
+                    <img src="images/service4.png" class="card-img-top" alt="Personalized Insights">
+                    <div class="card-body align-items-center justify-content-center">
+                        <h5 class="card-title">Personalized Insights:</h5>
+                        <p class="card-text">Our platform doesn't just collect data; it provides you with personalized insights and actionable recommendations based on your assessments. We guide you towards effective strategies for enhancing your mental and physical health.</p>
+                        <a href="/personalisezedinsights-info.html" class="btn btn-primary text-center">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--section starting-->
+<section class="about-section bg-dark text-white position-relative mt-5">
+    <div class="container mt-5">
+        <div class="position-relative">
+            <div class="row">
+                <div class="col-12 my-5 d-flex flex-column justify-content-center ">
+                    <h2 class="text-capitalize text-center">Join Us on the Path to Wellness</h2>
+                    <p>We invite you to join our growing community and embark on a journey towards better mental and physical health. By tracking your mental health, mood, and sleep patterns, you can gain a deeper understanding of yourself and make proactive choices to enhance your overall well-being.p>
+                    <div class="text-capitalize text-center">
+                        <a href="/student">
+                         <button class="btn btn-light btn">Login/Signup</button>                           
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--section ending-->
+
+
+<!--footer start-->
+<footer id="footer" class="mt-2 bg-dark p-3">   
+    <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
+      <div class="copyright justify-content-center align-items-center text-white">
+        &copy; Copyright <strong><span>My Mental Wellness</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits align-items-center justify-content-center  text-white">
+        Designed by <a href="https://bootstrapmade.com/">Bootstrap</a> and <a href="#">My Mental Wellness</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
