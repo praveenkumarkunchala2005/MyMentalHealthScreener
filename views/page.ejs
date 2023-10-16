@@ -163,11 +163,120 @@ a{color:inherit;text-decoration:none}
 color: #b3b3b3;
 } 
     </style>-->
+    <style>
+      /* Center the login box */
+      .login-box {
+          width: 100%;
+          max-width: 400px;
+          margin: 0 auto;
+      }
+  
+      /* Add background color to the card */
+      .card {
+          background-color: #fff;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      }
+  
+      /* Responsive styles for the form elements */
+      .login-snip {
+          padding: 20px;
+          text-align: left;
+      }
+  
+      .group {
+          margin-bottom: 20px;
+      }
+  
+      .label {
+          color: #ccc;
+          font-size: 16px;
+      }
+  
+      .input {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          background: rgba(255, 255, 255, 0.2);
+          font-size: 16px;
+      }
+  
+      .input::placeholder {
+          color: #b3b3b3;
+      }
+  
+      /* Style for both login and signup buttons */
+      .button {
+          width: 100%;
+          padding: 15px;
+          border: none;
+          border-radius: 5px;
+          background: #1161ee;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-0.3s;
+      }
+  
+      /* Change button background on hover */
+      .button:hover {
+          background: #0d50bf;
+      }
+  
+      /* Hide the signup form initially */
+      .sign-up-form {
+          display: none;
+      }
+  
+      /* Display the signup form when the signup radio button is checked */
+      input[type="radio"].sign-up:checked ~ .login-snip .sign-up-form {
+          display: block;
+      }
+  
+      /* Display the login form when the login radio button is checked */
+      input[type="radio"].sign-in:checked ~ .login-snip .login-form {
+          display: block;
+      }
+  
+      /* Style for radio buttons */
+      .tab {
+          display: inline-block;
+          cursor: pointer;
+          padding: 10px 20px;
+          border: 2px solid #1161ee;
+          border-radius: 5px;
+          font-size: 16px;
+          color: #1161ee;
+          margin-right: 10px;
+          transition: background-0.3s, color 0.3s;
+      }
+  
+      /* Style for the selected radio button */
+      .tab:checked {
+          background: #1161ee;
+          color: #fff;
+      }
+  
+      /* Additional responsive styles */
+      @media (max-width: 768px) {
+          .login-snip {
+              padding: 15px;
+          }
+  
+          .input {
+              padding: 8px;
+          }
+  
+          .button {
+              padding: 12px;
+          }
+      }
+  </style>
 </head>
 
 <body class="bg-dark">
     <!-- navbar starting -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border">
         <div class="container">
             <a class="navbar-brand" href="/">My Mental Wellness</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -191,97 +300,97 @@ color: #b3b3b3;
         </div>
     </nav>
     <!-- navbar ending -->
-
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 mx-auto p-0">
-                <div class="card">
-                    <div class="login-box">
-                        <div class="login-snip">
-                            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
-                                class="tab">Login</label>
-                            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
-                                class="tab">Sign Up</label>
+      <div class="row">
+          <div class="col-md-6 mx-auto p-0">
+              <div class="login-box card bg-dark">
+                  <div class="login-snip">
+                      <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+                      <label for="tab-1" class="tab">Login</label>
+                      <input id="tab-2" type="radio" name="tab" class="sign-up">
+                      <label for="tab-2" class="tab">Sign Up</label>
+  
+                      <div class="login-space">
+                          <div class="login-form">
+                            <form action="/login" method="POST">
+                              <div class="login">
+                                  <div class="group">
+                                      <label for="student_name" class="label">Student Name</label>
+                                      <input id="student_name" name="student_name" type="text" class="input"
+                                          placeholder="Enter student name">
+                                  </div>
 
-                            <div class="login-space">
-                                <form action="/login" method="POST">
-                                    <div class="login">
-                                        <div class="group">
-                                            <label for="student_name" class="label">Student Name</label>
-                                            <input id="student_name" name="student_name" type="text" class="input"
-                                                placeholder="Enter student name">
-                                        </div>
+                                  <div class="group">
+                                      <label for="student_name" class="label">Student rollnbr</label>
+                                      <input id="student_name" name="student_rollnbr" type="text" class="input"
+                                          placeholder="Enter student name">
+                                  </div>
+                                  <div class="group">
+                                      <label for="other_fields" class="label">Password</label>
+                                      <input id="password" name="password" type="password" class="input"
+                                          placeholder="Enter other fields">
+                                  </div>
+                                  <div class="text-center mt-4">
+                                      <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                  </div>
+                                  <div class="hr"></div>
+                              </div>
+                          </form>
+                          </div>
+  
+                          <div class="sign-up-form">
+                            <form action="/register" method="POST">
+                              <div class="registration">
+                                  <label for="school">Select your school:</label>
+                                  <select id="school" name="school" required>
+                                      <option value="" disabled selected>Select a school</option>
+                                      <% locals.schooldata.forEach(element => { %>
+                                          <option value="<%= element.school_name %>">
+                                              <p><%= element.school_name %></p>
+                                          </option>
+                                      <% }); %>
+                                      
+                                  </select>
 
-                                        <div class="group">
-                                            <label for="student_name" class="label">Student rollnbr</label>
-                                            <input id="student_name" name="student_rollnbr" type="text" class="input"
-                                                placeholder="Enter student name">
-                                        </div>
-                                        <div class="group">
-                                            <label for="other_fields" class="label">Password</label>
-                                            <input id="password" name="password" type="password" class="input"
-                                                placeholder="Enter other fields">
-                                        </div>
-                                        <div class="text-center mt-4">
-                                            <button type="submit" class="btn btn-primary">SUBMIT</button>
-                                        </div>
-                                        <div class="hr"></div>
-                                    </div>
-                                </form>
+                                  <div class="group">
+                                      <label for="student_name" class="label">Student Name</label>
+                                      <input id="student_name" name="student_name" type="text" class="input"
+                                          placeholder="Enter student name">
+                                  </div>
+                                  <div class="group">
+                                      <label for="student_name" class="label">Student rollnbr</label>
+                                      <input id="student_name" name="student_rollnbr" type="text" class="input"
+                                          placeholder="Enter student name">
+                                  </div>
+                                  <div class="group">
+                                      <label for="student_age" class="label">Student Age</label>
+                                      <input id="student_age" name="student_age" type="number" class="input"
+                                          placeholder="Enter student age">
+                                  </div>
+                                  <div class="group">
+                                      <label for="student_gender" class="label">Student Gender</label>
+                                      <input id="student_gender" name="student_gender" type="text" class="input"
+                                          placeholder="Enter student gender">
+                                  </div>
+                                  <div class="group">
+                                      <label for="other_fields" class="label">Password</label>
+                                      <input id="password" name="password" type="password" class="input"
+                                          placeholder="Enter other fields">
+                                  </div>
+                                  <div class="text-center mt-4">
+                                      <button type="submit" class="btn btn-primary">REGISTER</button>
+                                  </div>
+                              </div>
+                          </form>
 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-                                <form action="/register" method="POST">
-                                    <div class="registration">
-                                        <label for="school">Select your school:</label>
-                                        <select id="school" name="school" required>
-                                            <option value="" disabled selected>Select a school</option>
-                                            <% locals.schooldata.forEach(element => { %>
-                                                <option value="<%= element.school_name %>">
-                                                    <p><%= element.school_name %></p>
-                                                </option>
-                                            <% }); %>
-                                            
-                                        </select>
-
-                                        <div class="group">
-                                            <label for="student_name" class="label">Student Name</label>
-                                            <input id="student_name" name="student_name" type="text" class="input"
-                                                placeholder="Enter student name">
-                                        </div>
-                                        <div class="group">
-                                            <label for="student_name" class="label">Student rollnbr</label>
-                                            <input id="student_name" name="student_rollnbr" type="text" class="input"
-                                                placeholder="Enter student name">
-                                        </div>
-                                        <div class="group">
-                                            <label for="student_age" class="label">Student Age</label>
-                                            <input id="student_age" name="student_age" type="number" class="input"
-                                                placeholder="Enter student age">
-                                        </div>
-                                        <div class="group">
-                                            <label for="student_gender" class="label">Student Gender</label>
-                                            <input id="student_gender" name="student_gender" type="text" class="input"
-                                                placeholder="Enter student gender">
-                                        </div>
-                                        <div class="group">
-                                            <label for="other_fields" class="label">Password</label>
-                                            <input id="password" name="password" type="password" class="input"
-                                                placeholder="Enter other fields">
-                                        </div>
-                                        <div class="text-center mt-4">
-                                            <button type="submit" class="btn btn-primary">REGISTER</button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
     <!-- footer start -->
     <footer id="footer" class="mt-2 bg-dark fixed-bottom border">
@@ -298,6 +407,29 @@ color: #b3b3b3;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+        <script>
+          // Get the radio buttons
+          const signInRadio = document.querySelector(".sign-in");
+          const signUpRadio = document.querySelector(".sign-up");
+          const loginForm = document.querySelector(".login-form");
+          const signUpForm = document.querySelector(".sign-up-form");
+  
+          // Add event listener to the radio buttons
+          signInRadio.addEventListener("change", () => {
+              if (signInRadio.checked) {
+                  loginForm.style.display = "block";
+                  signUpForm.style.display = "none";
+              }
+          });
+  
+          signUpRadio.addEventListener("change", () => {
+              if (signUpRadio.checked) {
+                  loginForm.style.display = "none";
+                  signUpForm.style.display = "block";
+              }
+          });
+      </script>
 </body>
 
 </html>
+
