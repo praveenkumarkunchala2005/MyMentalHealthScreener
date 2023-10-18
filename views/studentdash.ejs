@@ -29,38 +29,76 @@
   </nav>
   
   <section class="MentalWellNessquestiona">
-      <div class="container my-3">
-        <div class="rounded bg-light">
-          <div class="row justify-content-center align-items-center g-2 my-3">
-            <a href="/questionaire.html" class="d-flex" style="text-decoration: none; color: inherit;">
-              <!-- Text Column -->
-              <div class="col-sm-6 col-lg-8 col-md-8">
-                <div class="card text-center my-3 mx-3">
-                  <div class="card-body">
-                    <h4 class="card-title">Welcome to My Mental Wellness!</h4>
-                    <p class="card-text">Your Path to Better Mental and Physical Health Starts Here.</p>
-                    <a href="/<%=locals.id%>/phq9">
-                        <button class="btn btn-primary" role="button">click here for answering questionaire</button>
-                    </a>
-                  </div>
-                </div>
+    <div class="container my-3">
+      <div class="rounded bg-light">
+        <div class="row justify-content-center align-items-center g-2 my-3">
+          <div class="col-sm-6 col-md-8 col-lg-8">
+            <div class="card text-center my-3 mx-3 h-100">
+              <div class="card-body d-flex flex-column justify-content-center">
+                <h4 class="card-title">Welcome to My Mental Wellness!</h4>
+                <p class="card-text">Your Path to Better Mental and Physical Health Starts Here.</p>
+                <a href="/<%=locals.id%>/phq9">
+                  <button class="btn btn-primary" role="button">click here for answering questionnaire</button>
+                </a>
               </div>
-              <!-- Image Column -->
-              <div class="card justify-content-center align-items-center my-3 mx-3">
-                  <div class="col-sm-6 col-md-4 col-lg-4 d-flex align-items-center justify-content-center">
-                    <img class="img-fluid max-width-100%" src="/images/1.png" alt="aboutphoto">
-                    </div>
-              </div>
-            </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-4 d-flex align-items-center justify-content-center">
+            <img class="img-fluid width-40%" src="/images/1.png" alt="aboutphoto">
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   
   <section class="container">
     <div class="card mt-5">
         <div class="card-body" id="student-report">
-            <!-- Student report will be inserted here -->
+<!-- Student report will be inserted here -->
+<!-- studentdash.ejs -->
+<% if (phq9date) { %>
+  <h1>Student Dashboard</h1>
+  <p>Student ID: <%= id %></p>
+
+  <h2>PHQ-15 Score</h2>
+  <p><%= phq15Scores %></p>
+
+  <% if (phq15Scores <= 4) { %>
+    <p>You have minimal somatic symptoms. Keep up the good work!</p>
+  <% } else if (phq15Scores <= 9) { %>
+    <p>You have mild somatic symptoms. Consider seeking help if they persist.</p>
+  <% } else if (phq15Scores <= 14) { %>
+    <p>You have moderate somatic symptoms. Consider seeking help from a healthcare professional.</p>
+  <% } else { %>
+    <p>You have severe somatic symptoms. Please seek help from a healthcare professional immediately.</p>
+  <% } %>
+
+  <h2>GAD-7 Score</h2>
+  <p><%= gad7Scores %></p>
+
+  <% if (gad7Scores <= 4) { %>
+    <p>You have minimal anxiety symptoms. Keep up the good work!</p>
+  <% } else if (gad7Scores <= 9) { %>
+    <p>You have mild anxiety symptoms. Consider seeking help if they persist.</p>
+  <% } else if (gad7Scores <= 14) { %>
+    <p>You have moderate anxiety symptoms. Consider seeking help from a healthcare professional.</p>
+  <% } else { %>
+    <p>You have severe anxiety symptoms. Please seek help from a healthcare professional immediately.</p>
+  <% } %>
+
+  <h2>PHQ-9 Score</h2>
+  <p><%= phq9Scores %></p>
+
+  <% if (phq9Scores <= 4) { %>
+    <p>You have minimal depression symptoms. Keep up the good work!</p>
+  <% } else if (phq9Scores <= 9) { %>
+    <p>You have mild depression symptoms. Consider seeking help if they persist.</p>
+  <% } else if (phq9Scores <= 14) { %>
+    <p>You have moderate depression symptoms. Consider seeking help from a healthcare professional.</p>
+  <% } else { %>
+    <p>You have severe depression symptoms. Please seek help from a healthcare professional immediately.</p>
+  <% } %>
+<% } %>
         </div>
     </div>
   </section>
@@ -81,7 +119,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  <script>
+  
+  <!--<script>
     // Sample student data in JSON format
     const studentData = [
       { id: 1, name: "John Doe", email: "john@example.com", phq9: 4, phq15: 8, gad7: 15 },
@@ -105,7 +144,7 @@
     }
   
     // Function to generate a sample report (replace with your own logic)
-    function generateStudentReport(student) {
+    <!--function generateStudentReport(student) {
       // Replace this with your report generation logic.
       // For example, you could fetch report data from your server.
       return `
@@ -182,6 +221,10 @@
     // Call the function to display the report on page load
     displayStudentReport();
   </script>
+  -->
+  
+  </body>
+</html>
   
   
   
