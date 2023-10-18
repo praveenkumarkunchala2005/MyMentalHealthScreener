@@ -13,7 +13,7 @@
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
         <div class="container">
-            <a class="navbar-brand" href="#">My Mental Wellness</a>
+            <a class="navbar-brand" href="/">My Mental Wellness</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -39,62 +39,123 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>date</th>
-                        <th>phq9</th>
-                        <th>phq15</th>
-                        <th>gad7</th>
-
-
+                        <th>Date</th>
+                        <th>Generate Report</th>
                     </tr>
                 </thead>
                 <tbody id="student-table-body">
                     <!-- Student data will be inserted here -->
-
-
                     <% locals.allstudent.forEach(student => { %>
-                        <tr>
-                          <td>
-                            <%= student.student_rollnbr %>
-                          </td>
-                          <td>
-                            <%= student.student_name %>
+                        <tr <% if ((student.phq9.length > 0 && student.phq9.slice(-1)[0].score >= 15) || (student.phq15.length > 0 && student.phq15.slice(-1)[0].score >= 10) || (student.gad7.length > 0 && student.gad7.slice(-1)[0].score >= 10)) { %>class="table-warning text-white"<% } %>>
+                            <td>
+                                <%= student.student_rollnbr %>
                             </td>
                             <td>
-                            <% let modifiedDate = ''; %>
-                        <% let date %>
-                            <% student.phq9.forEach(element => { %>
-                              <% date = element.date.toLocaleString(); %>
-                            <% }) %>
-                            <%= date %>
-                          </td>
-                          <td>
-                            <% let avg = 0; let leng = student.phq9.length; %>
-                              <% student.phq9.forEach(element => {
-                                avg += parseInt(element.score);
-                              }); %>
-                              <%= avg %>
-                          </td>
-                          <td>
-                            <% avg = 0; leng = student.phq15.length; %>
-                              <% student.phq15.forEach(element => {
-                                avg += parseInt(element.score);
-                              }); %>
-                              <%= avg %>
-                          </td>
-                          <td>
-                            <% avg = 0; leng = student.gad7.length; %>
-                            <% student.gad7.forEach(element => {
-                              avg += parseInt(element.score);
-                            }); %>
-                            <%= avg %>
-                          </td>
+                                <%= student.student_name %>
+                            </td>
+                            <td>
+                                <% let modifiedDate = ''; %>
+                                <% let date %>
+                                <% student.phq9.forEach(element => { %>
+                                    <% date = element.date.toLocaleString(); %>
+                                <% }) %>
+                                <%= date %>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" onclick="generateReport(<%= JSON.stringify(student) %>)">Generate Report</button>
+                            </td>
                         </tr>
-                      <% }); %>
-                      
+                    <% }); %>
                 </tbody>
             </table>
         </div>
     </section>
+
+    <script>
+        function toggleCollapsible(button) {
+            var collapsible = button.nextElementSibling;
+            if (collapsible.style.display === "none") {
+                collapsible.style.display = "block";
+                button.innerText = "Hide Scores";
+            } else {
+                collapsible.style.display = "none";
+                button.innerText = "View Scores";
+            }
+        }
+
+        function generateReport(student) {
+            // Get the latest scores for each assessment
+            const phq9Score = student.phq9 && student.phq9.length > 0 ? student.phq9.slice(-1)[0].score : null;
+            const phq15Score = student.phq15 && student.phq15.length > 0 ? student.phq15.slice(-1)[0].score : null;
+            const gad7Score = student.gad7 && student.gad7.length > 0 ? student.gad7.slice(-1)[0].score : null;
+
+            // Generate the report
+            let report = `Report for ${student.student_name} (${student.student_rollnbr})\n\n`;
+            if (phq9Score !== null) {
+                if(phq9Score >= 15) {
+                    report += `PHQ9 score is ${phq9Score}. student show high signs of depression. student have to consult a therapist for active / immediate.\n`;
+                }
+                else if(phq9Score >= 10) {
+                    report += `PHQ9 score is ${phq9Score}. student show moderate signs of depression. student need to consider a treatment plan like counselling or consulting a therapist and get medication like frequent follow up and/or pharmacotherapy.\n`;
+                }
+                else if(phq9Score >= 5) {
+                    report += `PHQ9 score is ${phq9Score}. student show fewer signs of depression. student need to be diagnosed with PHQ-9 frequently, to help student from the depressive disorders.\n`;
+                }
+                else {
+                    report += `PHQ9 score is ${phq9Score}. student show no signs of depression. student appear to be quite content with yourself and with your life at this time. student may still get sad from time to time, but not to a worrisome extreme.\n`;
+                }
+            } else {
+                report += `PHQ9 score is not available for this student.\n`;
+            }
+            if (phq15Score !== null) {
+                if(phq15Score >= 15) {
+                    report += `PHQ15 score is ${phq15Score}. student show high signs of somatic symptoms. student have to consult a therapist for active / immediate.\n`;
+                }
+                else if(phq15Score >= 10) {
+                    report += `PHQ15 score  ${phq15Score}. student show moderate signs of somatic symptoms. student need to consider a treatment plan like counselling or consulting a therapist and get medication like frequent follow up and/or pharmacotherapy.\n`;
+                }
+                else if(phq15Score >= 5) {
+                    report += `PHQ15 score  ${phq15Score}. student show fewer signs of somatic symptoms. student need to be diagnosed with PHQ-15 frequently, to help you from the somatic symptoms.\n`;
+                }
+                else {
+                    report += `PHQ15 score  ${phq15Score}. student show no signs of somatic symptoms. student appear to be quite content with yourself and with your life at this time. student may still get sad from time to time, but not to a worrisome extreme.\n`;
+                }
+            } else {
+                report += `PHQ15 score is not available for this student.\n`;
+            }
+            if (gad7Score !== null) {
+                if(gad7Score >= 15) {
+                    report += `GAD7 score  ${gad7Score}. student show high signs of anxiety. student have to consult a therapist for active / immediate.\n`;
+                }
+                else if(gad7Score >= 10) {
+                    report += `GAD7 score  ${gad7Score}. student show moderate signs of anxiety. student need to consider a treatment plan like counselling or consulting a therapist and get medication like frequent follow up and/or pharmacotherapy.\n`;
+                }
+                else if(gad7Score >= 5) {
+                    report += `GAD7 score  ${gad7Score}. student show fewer signs of anxiety. student need to be diagnosed with GAD-7 frequently, to help student from the anxiety disorders.\n`;
+                }
+                else {
+                    report += `GAD7 score  ${gad7Score}. student show no signs of anxiety. student appear to be quite content with yourself and with your life at this time. student may still get sad from time to time, but not to a worrisome extreme.\n`;
+                }
+            } else {
+                report += `GAD7 score is not available for this student.\n`;
+            }
+            
+            // Display the report
+            alert(report);
+        }
+
+        function toggleCollapsible(button) {
+            var collapsible = button.nextElementSibling;
+            var buttonRow = collapsible.querySelector('.button-row');
+            if (collapsible.style.display === 'none') {
+                button.innerHTML = 'Hide Scores';
+                collapsible.style.display = 'block';
+            } else {
+                button.innerHTML = 'View Scores';
+                collapsible.style.display = 'none';
+            }
+        }
+    </script>
     <!-- footer start -->
     <footer id="footer" class="mt-2 bg-dark border">
         <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
@@ -113,49 +174,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script>
-        // Sample student data in JSON format
-
-
-        // Function to populate the table with student data
-        // function populateStudentTable() {
-        //     const studentTableBody = document.getElementById("student-table-body");
-
-        //     // Clear any existing rows
-        //     studentTableBody.innerHTML = "";
-
-        //     // Loop through the student data and create table rows
-
-        // }
-
-        // Function to toggle the report display
-        function toggleReport(studentId) {
-            const reportDiv = document.getElementById(`report-${studentId}`);
-            const reportData = generateStudentReport(studentId); // Call your function to generate the report here
-
-            if (reportDiv.style.display === "none") {
-                if (reportData) {
-                    reportDiv.innerHTML = `
-                    <h4>Student Report for ID ${studentId}</h4>
-                    <p>${reportData}</p>
-                `;
-                    reportDiv.style.display = "block";
-                }
-            } else {
-                reportDiv.style.display = "none";
-            }
-        }
-
-        // Function to generate a sample report (replace with your own logic)
-        function generateStudentReport(studentId) {
-            // Replace this with your report generation logic.
-            // For example, you could fetch report data from your server.
-            return `This is a sample report for student ID ${studentId}.`;
-        }
-
-        // Call the function to populate the table on page load
-        populateStudentTable();
-    </script>
 </body>
 
 </html>
