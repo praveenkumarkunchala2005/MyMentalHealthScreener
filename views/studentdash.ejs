@@ -57,8 +57,35 @@
 <!-- Student report will be inserted here -->
 <!-- studentdash.ejs -->
 <% if (phq9date) { %>
-  <h1>Student Dashboard</h1>
+  <h1>Your Report</h1>
   <p>Student ID: <%= id %></p>
+    <p>The Patient Health Questionnaire (PHQ) and GAD-7 offer clinicians concise,
+    self-administered screening and diagnostic tools for mental health disorders,
+    which have been field-tested in office practice.
+    The screeners are quick and user-friendly, improving the recognition rate of
+    depression and anxiety and facilitating diagnosis and treatment.
+    Patients receiving intervention should be provided with regular follow-up and
+    tracked for improvement in their PHQ score. The administration of the PHQ for
+    follow-up can be done using phone calls and/or a smartphone application.
+    Results from studies that have analyzed telephonic and electronic
+    administration of the tool have demonstrated that these methods yield similar
+    results to being administered in person.
+    The information that we provide is only intended for informational purposes -
+    this test is not intended as a definitive diagnostic tool. Review the Details
+    section for areas of concern detected by the screening.</p>
+    <br>
+    <h2>Advice</h2>
+    <ul>
+      <li>Choose a therapist who feels right for you. It is important for you to feel comfortable opening up to your therapist. In most cases, the race, gender, sexual orientation, religion, or other demographic aspects of therapists are not an issue, but sometimes, preconceived notions or past life experiences can affect our ability to communicate comfortably with certain therapists. For example, a woman who has been sexually assaulted by a man may prefer speaking to a female therapist.</li>
+      <li>Ask your friends or family. If any of your friends or family have ever consulted a therapist, ask them what their experiences were like. Did they like their therapist and was the treatment helpful? These people can be valuable sources of information when deciding on a therapist for yourself.</li>
+      <li>Consider the type of treatment you need. Psychiatrists, psychologists, and therapists can all offer you counseling and advice. However, only medical doctors and psychiatrists can prescribe drugs. If you think that you will need medication, be sure to choose someone who is licensed to prescribe it.</li>
+      <li>Ensure that the therapist's licensing requirements are up to date. One useful place to look for licensed therapists is Psychology Today's Therapist Directory.</li>
+      <li>Ask questions. Before starting therapy, you should ask your potential therapist questions relevant to the treatment: how many sessions you will likely need, what will be the cost of the treatment, and what happens if you decide to abandon your treatment program. Also, ask your therapist about his/her areas of expertise and what his/her qualifications are. Taking the time to ask all these questions can prove to be extremely helpful in finding the right therapist and can prevent you from entering into a situation you are not comfortable with.</li>
+      <li>Be sure that your therapist creates an environment of respect in his/her sessions. If you feel uneasy talking to your therapist or don't feel respected, you are more than likely not consulting the right therapist. Think about finding someone else.</li>
+      <li>Do what it takes to make yourself feel comfortable. There is no shame in being a difficult customer. Remember, you are the one paying for this treatment, so you may as well be sure that you are satisfied with what you get.</li>
+      <li>Ensure that your therapist's moral values are similar to yours. A therapist's role is to guide you in the choices that you make. If your therapist's views are too different, the advice that she/he offers may not make a lot of sense to you. This may make it difficult for you to incorporate this advice into your attitudes and behavior. Therapy, however, is an adversarial process and you shouldn't start looking for a new therapist just because your current therapist challenges your views and attitudes. That's part of his/her job. What is important is the outcome of your sessions. If your therapist is successful in making you think about the choices you make and their outcomes, then you have probably found a therapist that will satisfy your needs.</li>
+    </ul>
+    <br>
 
   <h2>PHQ-15 Score</h2>
   <p><%= phq15Scores %></p>
