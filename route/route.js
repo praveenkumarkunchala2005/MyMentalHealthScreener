@@ -54,18 +54,57 @@ route.post("/login", async (req, res) => {
   const url="/"+student.id +"/studentdash"
   res.redirect(url);
 });
-route.get("/:student/studentdash",(req,res)=>{
-  const id= req.params.student;
-  res.render("studentdash",{id})
-})
+//route.get("/:student/studentdash",(req,res)=>{
+ // const id= req.params.student;
+  //res.render("studentdash",{id})
+//})
+const Student = require('../models/mongodb.js');
+const { PHQ9Scores, PHQ15Scores, GAD7Scores } = require('../models/mongodb.js');
+
+route.get("/:student/studentdash", async (req, res) => {
+  const id = req.params.student;
+  console.log(id)
+  
+  const studentData = await Data.Student.findOne({ _id: id});
+  const phq15Scores = studentData.phq15.length > 0 ? studentData.phq15.slice(-1)[0].score : null;
+  const gad7Scores = studentData.gad7.length > 0 ? studentData.gad7.slice(-1)[0].score : null;
+  const phq9Scores = studentData.phq9.length > 0 ? studentData.phq9.slice(-1)[0].score : null;
+  const phq15date = studentData.phq15.length > 0 ? studentData.phq15.slice(-1)[0].date.toLocaleDateString() : null;
+  const gad7Sdate = studentData.gad7.length > 0 ? studentData.gad7.slice(-1)[0].date.toLocaleDateString() : null;
+  const phq9date = studentData.phq9.length > 0 ? studentData.phq9.slice(-1)[0].date.toLocaleDateString() : null;
+  const today = new Date().toLocaleDateString(); 
+  console.log(phq15Scores,phq9Scores,gad7Scores,phq15date,gad7Sdate,phq9date,today)
+  
+  res.render("studentdash",{id,phq15Scores,phq9Scores,gad7Scores,phq9date})
+});
+
 route.get("/:student/phq15", (req, res) => {
   const id= req.params.student;
   res.render("phq15",{id});
 })
-route.get("/:student/phq9", (req, res) => {
+route.get("/:student/phq9", async (req, res) => {
   const id= req.params.student;
   console.log(id,"phq9")
-  res.render("phq9",{id});
+  const studentData = await Data.Student.findOne({ _id: id});
+  const phq9Scores = studentData.phq9.length > 0 ? studentData.phq9.slice(-1)[0].score : null;
+  console.log(phq9Scores)
+  if (phq9Scores === null) {
+    res.render("phq9", { id });
+  } else {
+    const phq9date = studentData.phq9.slice(-1)[0].date.toLocaleDateString();
+    const today = new Date().toLocaleDateString(); // get today's date
+    const timeDiff = Math.abs(new Date(today) - new Date(phq9date));
+    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    console.log(diffDays,timeDiff,phq9date,today)
+    if (diffDays >= 7) {
+      res.render("phq9", { id });
+    } else {
+      const phq15Scores = studentData.phq15.slice(-1)[0].score;
+      const phq9Scores = studentData.phq9.slice(-1)[0].score;
+      const gad7Scores = studentData.gad7.slice(-1)[0].score;
+      res.render("studentdash",{id,phq15Scores,phq9Scores,gad7Scores,phq9date})
+    }
+  }
 })
 route.get("/:student/gad7", (req, res) => {
   const id= req.params.student;
@@ -76,15 +115,12 @@ route.get("/weekly", (req, res) => {
   res.render("question4");
 })
 route.post("/:student/phq15", async (req, res) => {
-
- 
   let marks;
   const { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15 } = req.body;
   console.log(req.params.student, req.body, "phq15")
   const studentid = await Data.Student.findById(req.params.student)
   marks = parseInt(q1) + parseInt(q2) + parseInt(q3) + parseInt(q4) + parseInt(q5) + parseInt(q6) + parseInt(q7) + parseInt(q8) + parseInt(q9) + parseInt(q10) + parseInt(q11) + parseInt(q12) + parseInt(q13) + parseInt(q14) + parseInt(q15)
   const newphq15 ={
-    //person: studentid._id,
     date: new Date(),
     score: marks,
   }
