@@ -344,7 +344,7 @@ route.get('/:student/generate-pdf', async (req, res) => {
   console.log('Student ID:', studentid);
   const encodedStudentId = encodeURIComponent(studentid);
   console.log('Encoded Student ID:', encodedStudentId);
-  const url = `http://localhost:3000/${encodedStudentId}/profile1`;
+  const url = `https://mymentalhealthscreener.onrender.com/${encodedStudentId}/profile1`;
   console.log('URL:', url);
   if (!url) {
     return res.status(400).send('Missing URL parameter');
