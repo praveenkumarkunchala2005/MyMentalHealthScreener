@@ -21,7 +21,10 @@
                       <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" aria-current="page" href="#">Logout</a>
+                    <a class="nav-link active" aria-current="page" href="/<%=locals.id%>/profile">Profile</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="/">Logout</a>
                   </li>
               </ul>
           </div>
@@ -50,86 +53,95 @@
       </div>
     </div>
   </section>
-  
-  <section class="container">
-    <div class="card mt-5">
-        <div class="card-body" id="student-report">
-<!-- Student report will be inserted here -->
-<!-- studentdash.ejs -->
-<% if (phq9date) { %>
-  <h1>Your Report</h1>
-  <p>Student ID: <%= id %></p>
-    <p>The Patient Health Questionnaire (PHQ) and GAD-7 offer clinicians concise,
-    self-administered screening and diagnostic tools for mental health disorders,
-    which have been field-tested in office practice.
-    The screeners are quick and user-friendly, improving the recognition rate of
-    depression and anxiety and facilitating diagnosis and treatment.
-    Patients receiving intervention should be provided with regular follow-up and
-    tracked for improvement in their PHQ score. The administration of the PHQ for
-    follow-up can be done using phone calls and/or a smartphone application.
-    Results from studies that have analyzed telephonic and electronic
-    administration of the tool have demonstrated that these methods yield similar
-    results to being administered in person.
-    The information that we provide is only intended for informational purposes -
-    this test is not intended as a definitive diagnostic tool. Review the Details
-    section for areas of concern detected by the screening.</p>
-    <br>
-    <h2>Advice</h2>
-    <ul>
-      <li>Choose a therapist who feels right for you. It is important for you to feel comfortable opening up to your therapist. In most cases, the race, gender, sexual orientation, religion, or other demographic aspects of therapists are not an issue, but sometimes, preconceived notions or past life experiences can affect our ability to communicate comfortably with certain therapists. For example, a woman who has been sexually assaulted by a man may prefer speaking to a female therapist.</li>
-      <li>Ask your friends or family. If any of your friends or family have ever consulted a therapist, ask them what their experiences were like. Did they like their therapist and was the treatment helpful? These people can be valuable sources of information when deciding on a therapist for yourself.</li>
-      <li>Consider the type of treatment you need. Psychiatrists, psychologists, and therapists can all offer you counseling and advice. However, only medical doctors and psychiatrists can prescribe drugs. If you think that you will need medication, be sure to choose someone who is licensed to prescribe it.</li>
-      <li>Ensure that the therapist's licensing requirements are up to date. One useful place to look for licensed therapists is Psychology Today's Therapist Directory.</li>
-      <li>Ask questions. Before starting therapy, you should ask your potential therapist questions relevant to the treatment: how many sessions you will likely need, what will be the cost of the treatment, and what happens if you decide to abandon your treatment program. Also, ask your therapist about his/her areas of expertise and what his/her qualifications are. Taking the time to ask all these questions can prove to be extremely helpful in finding the right therapist and can prevent you from entering into a situation you are not comfortable with.</li>
-      <li>Be sure that your therapist creates an environment of respect in his/her sessions. If you feel uneasy talking to your therapist or don't feel respected, you are more than likely not consulting the right therapist. Think about finding someone else.</li>
-      <li>Do what it takes to make yourself feel comfortable. There is no shame in being a difficult customer. Remember, you are the one paying for this treatment, so you may as well be sure that you are satisfied with what you get.</li>
-      <li>Ensure that your therapist's moral values are similar to yours. A therapist's role is to guide you in the choices that you make. If your therapist's views are too different, the advice that she/he offers may not make a lot of sense to you. This may make it difficult for you to incorporate this advice into your attitudes and behavior. Therapy, however, is an adversarial process and you shouldn't start looking for a new therapist just because your current therapist challenges your views and attitudes. That's part of his/her job. What is important is the outcome of your sessions. If your therapist is successful in making you think about the choices you make and their outcomes, then you have probably found a therapist that will satisfy your needs.</li>
-    </ul>
-    <br>
-
-  <h2>PHQ-15 Score</h2>
-  <p><%= phq15Scores %></p>
-
-  <% if (phq15Scores <= 4) { %>
-    <p>You have minimal somatic symptoms. Keep up the good work!</p>
-  <% } else if (phq15Scores <= 9) { %>
-    <p>You have mild somatic symptoms. Consider seeking help if they persist.</p>
-  <% } else if (phq15Scores <= 14) { %>
-    <p>You have moderate somatic symptoms. Consider seeking help from a healthcare professional.</p>
-  <% } else { %>
-    <p>You have severe somatic symptoms. Please seek help from a healthcare professional immediately.</p>
-  <% } %>
-
-  <h2>GAD-7 Score</h2>
-  <p><%= gad7Scores %></p>
-
-  <% if (gad7Scores <= 4) { %>
-    <p>You have minimal anxiety symptoms. Keep up the good work!</p>
-  <% } else if (gad7Scores <= 9) { %>
-    <p>You have mild anxiety symptoms. Consider seeking help if they persist.</p>
-  <% } else if (gad7Scores <= 14) { %>
-    <p>You have moderate anxiety symptoms. Consider seeking help from a healthcare professional.</p>
-  <% } else { %>
-    <p>You have severe anxiety symptoms. Please seek help from a healthcare professional immediately.</p>
-  <% } %>
-
-  <h2>PHQ-9 Score</h2>
-  <p><%= phq9Scores %></p>
-
-  <% if (phq9Scores <= 4) { %>
-    <p>You have minimal depression symptoms. Keep up the good work!</p>
-  <% } else if (phq9Scores <= 9) { %>
-    <p>You have mild depression symptoms. Consider seeking help if they persist.</p>
-  <% } else if (phq9Scores <= 14) { %>
-    <p>You have moderate depression symptoms. Consider seeking help from a healthcare professional.</p>
-  <% } else { %>
-    <p>You have severe depression symptoms. Please seek help from a healthcare professional immediately.</p>
-  <% } %>
-<% } %>
+  <section class="container my-4">
+    <div class="row">
+        <div class="col-md-6">
+          <!-- Sleep Rating Card -->
+          <div class="card">
+            <div class="card-body text-center">
+              <h2 class="card-title">Rate Your Sleep (1 to 5)</h2>
+              <form id="sleep-form">
+                <div class="form-group">
+                  <label for="sleep-date">Select Date:</label>
+                  <input type="date" class="form-control" id="sleep-date" value="<%= new Date().toISOString().substr(0, 10) %>" required>
+                </div>
+                <div class="form-group">
+                  <label for="sleep-time">Select Time:</label>
+                  <input type="time" class="form-control" id="sleep-time" value="<%= new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %>" required>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sleepRating" id="sleep-rating-1" value="1">
+                  <label class="form-check-label" for="sleep-rating-1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sleepRating" id="sleep-rating-2" value="2">
+                  <label class="form-check-label" for="sleep-rating-2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sleepRating" id="sleep-rating-3" value="3">
+                  <label class="form-check-label" for="sleep-rating-3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sleepRating" id="sleep-rating-4" value="4">
+                  <label class="form-check-label" for="sleep-rating-4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="sleepRating" id="sleep-rating-5" value="5">
+                  <label class="form-check-label" for="sleep-rating-5">5</label>
+                </div>
+                <div class="mt-3">
+                  <p id="sleep-selected">You rated: <span id="sleep-value">N/A</span></p>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Sleep Rating</button>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-  </section>
-  
+        <div class="col-md-6">
+          <!-- Stress Rating Card -->
+          <div class="card">
+            <div class="card-body text-center">
+              <h2 class="card-title">Rate Your Stress (1 to 5)</h2>
+              <form id="stress-form">
+                <div class="form-group">
+                  <label for="stress-date">Select Date:</label>
+                  <input type="date" class="form-control" id="stress-date" value="<%= new Date().toISOString().substr(0, 10) %>" required>
+                </div>
+                <div class="form-group">
+                  <label for="stress-time">Select Time:</label>
+                  <input type="time" class="form-control" id="stress-time" value="<%= new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %>" required>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="stressRating" id="stress-rating-1" value="1">
+                  <label class="form-check-label" for="stress-rating-1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="stressRating" id="stress-rating-2" value="2">
+                  <label class="form-check-label" for="stress-rating-2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="stressRating" id="stress-rating-3" value="3">
+                  <label class="form-check-label" for="stress-rating-3">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="stressRating" id="stress-rating-4" value="4">
+                  <label class="form-check-label" for="stress-rating-4">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="stressRating" id="stress-rating-5" value="5">
+                  <label class="form-check-label" for="stress-rating-5">5</label>
+                </div>
+                <div class="mt-3">
+                  <p id="stress-selected">You rated: <span id="stress-value">N/A</span></p>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit Stress Rating</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+
   <!-- footer start -->
   <footer id="footer" class="mt-2 bg-dark border">
       <div class="container p-2 bf-dark text-center justify-content-center align-items-center">

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Mental Wellness</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/<%=locals.id%>/studentdash">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6 col-12 m-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile Information</h5>
+                        <p class="card-text">Student Name: <%= student_name %></p>
+                        <p class="card-text">School Name: <%= school_name  %></p>
+                        <p class="card-text">Roll Number: <%=student_rollnbr%></p>
+                        <p class="card-text">Age: <%=student_age%></p>
+                        <p class="card-text">gender: <%=student_gender%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 m-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mental Health Graph</h5>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="container">
+        <div class="card mt-5">
+            <div class="card-body" id="student-report">
+    <!-- Student report will be inserted here -->
+    <!-- studentdash.ejs -->
+    <% if (phq9date1) { %>
+      <h1>Description</h1>
+      <p>Student Name: <%= student_name %></p>
+      <p>Student Roll Number: <%= student_rollnbr %></p>
+        <p>The Patient Health Questionnaire (PHQ) and GAD-7 offer clinicians concise,
+        self-administered screening and diagnostic tools for mental health disorders,
+        which have been field-tested in office practice.
+        The screeners are quick and user-friendly, improving the recognition rate of
+        depression and anxiety and facilitating diagnosis and treatment.
+        Patients receiving intervention should be provided with regular follow-up and
+        tracked for improvement in their PHQ score. The administration of the PHQ for
+        follow-up can be done using phone calls and/or a smartphone application.
+        Results from studies that have analyzed telephonic and electronic
+        administration of the tool have demonstrated that these methods yield similar
+        results to being administered in person.
+        The information that we provide is only intended for informational purposes -
+        this test is not intended as a definitive diagnostic tool. Review the Details
+        section for areas of concern detected by the screening.</p>
+        <br>
+        <h2>Advice</h2>
+        <ul>
+          <li>Choose a therapist who feels right for you. It is important for you to feel comfortable opening up to your therapist. In most cases, the race, gender, sexual orientation, religion, or other demographic aspects of therapists are not an issue, but sometimes, preconceived notions or past life experiences can affect our ability to communicate comfortably with certain therapists. For example, a woman who has been sexually assaulted by a man may prefer speaking to a female therapist.</li>
+          <li>Ask your friends or family. If any of your friends or family have ever consulted a therapist, ask them what their experiences were like. Did they like their therapist and was the treatment helpful? These people can be valuable sources of information when deciding on a therapist for yourself.</li>
+          <li>Consider the type of treatment you need. Psychiatrists, psychologists, and therapists can all offer you counseling and advice. However, only medical doctors and psychiatrists can prescribe drugs. If you think that you will need medication, be sure to choose someone who is licensed to prescribe it.</li>
+          <li>Ensure that the therapist's licensing requirements are up to date. One useful place to look for licensed therapists is Psychology Today's Therapist Directory.</li>
+          <li>Ask questions. Before starting therapy, you should ask your potential therapist questions relevant to the treatment: how many sessions you will likely need, what will be the cost of the treatment, and what happens if you decide to abandon your treatment program. Also, ask your therapist about his/her areas of expertise and what his/her qualifications are. Taking the time to ask all these questions can prove to be extremely helpful in finding the right therapist and can prevent you from entering into a situation you are not comfortable with.</li>
+          <li>Be sure that your therapist creates an environment of respect in his/her sessions. If you feel uneasy talking to your therapist or don't feel respected, you are more than likely not consulting the right therapist. Think about finding someone else.</li>
+          <li>Do what it takes to make yourself feel comfortable. There is no shame in being a difficult customer. Remember, you are the one paying for this treatment, so you may as well be sure that you are satisfied with what you get.</li>
+          <li>Ensure that your therapist's moral values are similar to yours. A therapist's role is to guide you in the choices that you make. If your therapist's views are too different, the advice that she/he offers may not make a lot of sense to you. This may make it difficult for you to incorporate this advice into your attitudes and behavior. Therapy, however, is an adversarial process and you shouldn't start looking for a new therapist just because your current therapist challenges your views and attitudes. That's part of his/her job. What is important is the outcome of your sessions. If your therapist is successful in making you think about the choices you make and their outcomes, then you have probably found a therapist that will satisfy your needs.</li>
+        </ul>
+        <br>
+
+      <h2>Report</h2>
+      <h5>PHQ-15 Score: <%= phq15Scores1 %></h5>
+      <% if (phq15Scores1 <= 4) { %>
+        <p>You show no signs of Somatic Symptom Severity. You appear to be
+          quite content with yourself and with your life at this time.</p>
+      <% } else if (phq15Scores1 <= 9) { %>
+        <p>You show fewer signs of Somatic Symptom Severity. You need to be
+          diagnosed with PHQ-15 frequently , to help you from the somatic
+          symptoms.</p>
+      <% } else if (phq15Scores1 <= 14) { %>
+        <p>You show moderate signs of Somatic Symptom Severity. You need to
+          consider a treatment plan like counselling or consulting a therapist
+          and get medication like frequent follow up and/or pharmacotherapy,
+          to get diagnosed from somatic symptoms.</p>
+      <% } else { %>
+        <p>You show high signs of Somatic Symptom Severity. You have to
+          consult a therapist for active / immediate initiation of
+          pharmacotherapy and/ or psychotherapy.</p>
+      <% } %>
+    
+      <h5>GAD-7 Score: <%= gad7Scores1 %></h5>
+    
+      <% if (gad7Scores1 <= 4) { %>
+        <p>You show no signs of anxiety and don't appear to have any problems
+          with excessive worry. Essentially, this likely means that you have
+          developed a repertoire of coping strategies as well as a support
+          network for dealing with both the small stressors in your life and the
+          big worries.</p>
+      <% } else if (gad7Scores1 <= 9) { %>
+        <p>You show fewer signs of anxiety and appear to have little problems
+          with excessive worry. Essentially, You need to be diagnosed with
+          GAD-7 frequently , to help you from the anxiety related problems.</p>
+      <% } else if (gad7Scores1 <= 14) { %>
+        <p>You show moderate signs of anxiety and don't appear to have any
+          problems with excessive worry. Essentially, You need to consider a
+          treatment plan like counselling or consulting a therapist and get
+          medication like frequent follow up and/or pharmacotherapy, to get
+          diagnosed from anxiety related problems.</p>
+      <% } else { %>
+        <p>You show high signs of anxiety and appear to have many problems
+          with excessive worry. Essentially, You have to consult a therapist for
+          active / immediate initiation of pharmacotherapy and/ or
+          psychotherapy.</p>
+      <% } %>
+    
+      <h5>PHQ-9 Score: <%= phq9Scores1 %></h5>
+      <% if (phq9Scores1 <= 4) { %>
+        <p>ou show no signs of depression. You appear to be quite content with
+          yourself and with your life at this time. You may still get sad from
+          time to time, but not to a worrisome extreme.</p>
+      <% } else if (phq9Scores1 <= 9) { %>
+        <p>You show fewer signs of depression. You need to be diagnosed with
+          PHQ-9 frequently , to help you from the depressive disorders.</p>
+      <% } else if (phq9Scores1 <= 14) { %>
+        <p>You show moderate signs of depression. You need to consider a
+          treatment plan like counselling or consulting a therapist and get
+          medication like frequent follow up and/or pharmacotherapy.</p>
+      <% } else { %>
+        <p>You show high signs of depression. You have to consult a therapist for
+          active / immediate initiation of pharmacotherapy and/ or
+          psychotherapy.</p>
+      <% } %>
+    <% } %>
+            </div>
+        </div>
+      </section>
+                    <!-- footer start -->
+                    <footer id="footer" class="mt-2 bg-dark border">
+                        <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
+                            <div class="copyright justify-content-center align-items-center text-white">
+                                &copy; My Mental Wellness. All Rights Reserved
+                            </div>
+                            <div class="credits align-items-center justify-content-center  text-white">
+                                Designed by <a href="https://bootstrapmade.com/">Bootstrap</a> and <a href="#">My Mental Wellness</a>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End Footer -->
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['<%=phq9dates[0]%>','<%=phq9dates[1]%>', '<%=phq9dates[2]%>','<%=phq9dates[3]%>','<%=phq9dates[4]%>'],
+                                datasets: [{
+                                    label: 'PHQ9 (1 to 30)',
+                                    data: [<%=phq9Scores[0]%>,<%=phq9Scores[1]%>, <%=phq9Scores[2]%>, <%=phq9Scores[3]%>, <%=phq9Scores[4]%>],
+                                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1
+                                }, {
+                                    label: 'PHQ15 (1 to 30)',
+                                    data: [<%=phq15Scores[0]%>, <%=phq15Scores[1]%>, <%=phq15Scores[2]%>, <%=phq15Scores[3]%>, <%=phq15Scores[4]%>],
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }, {
+                                    label: 'GAD7 (1 to 21)',
+                                    data: [<%=gad7Scores[0]%>, <%=gad7Scores[1]%>, <%=gad7Scores[2]%>, <%=gad7Scores[3]%>, <%=gad7Scores[4]%>],
+                                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                                    borderColor: 'rgba(255, 206, 86, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+</body>
+</html>

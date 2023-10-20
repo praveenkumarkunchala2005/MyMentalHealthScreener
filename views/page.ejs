@@ -341,17 +341,22 @@ color: #b3b3b3;
                           <div class="sign-up-form">
                             <form action="/register" method="POST">
                               <div class="registration">
-                                  <label for="school">Select your school:</label>
-                                  <select id="school" name="school" required>
-                                      <option value="" disabled selected>Select a school</option>
-                                      <% locals.schooldata.forEach(element => { %>
-                                          <option value="<%= element.school_name %>">
-                                              <p><%= element.school_name %></p>
-                                          </option>
-                                      <% }); %>
-                                      
-                                  </select>
-
+                                <label class="text-white" for="school">Select your school:</label>
+                                <label for="school">Select your school:</label>
+                                <select id="school" name="school" required>
+                                  <% locals.schooldata.forEach(element => { %>
+                                    <option value="<%= element.school_name %>"><%= element.school_name %></option>
+                                  <% }); %>
+                                </select>
+                              
+                                <label for="mentor">Select your Mentor:</label>
+                                <select id="mentor" name="mentor_name" required>
+                                  <!-- Initially empty -->
+                                </select>
+                              
+                                <!-- Hidden input field to capture the selected mentor's name -->
+                                <input type="hidden" id="selectedMentor" name="selected_mentor" value="">
+                            
                                   <div class="group">
                                       <label for="student_name" class="label">Student Name</label>
                                       <input id="student_name" name="student_name" type="text" class="input"
@@ -390,8 +395,41 @@ color: #b3b3b3;
           </div>
       </div>
   </div>
+<script>
+    document.getElementById('school').addEventListener('change', function () {
+  const selectedSchool = this.value;
+  const mentorDropdown = document.getElementById('mentor');
+  const selectedMentorInput = document.getElementById('selectedMentor');
 
+  // Make an AJAX request to fetch mentors based on the selected school
+  fetch('/getMentors', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ selectedSchool }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Clear the existing options
+      mentorDropdown.innerHTML = '<option value="" disabled selected>Select a mentor</option>';
 
+      // Populate the mentor dropdown with the fetched mentors
+      data.forEach(mentor => {
+        mentorDropdown.innerHTML += `<option value="${mentor.mentor_name}">${mentor.mentor_name}</option>`;
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+  // Update the value of the hidden input field when a mentor is selected
+  mentorDropdown.addEventListener('change', function () {
+    selectedMentorInput.value = this.value;
+  });
+});
+
+</script>
     <!-- footer start -->
     <footer id="footer" class="mt-2 bg-dark fixed-bottom border">
         <div class="container p-2 bf-dark text-center justify-content-center align-items-center">
