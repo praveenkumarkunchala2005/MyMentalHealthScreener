@@ -9,6 +9,66 @@
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+h1 {
+    color: #143d59;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+#FAQs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+  }
+
+ 
+  
+.faq-item {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 1rem;
+}
+.item-question {
+    background: #143d59;
+    color: whitesmoke;
+    font-size: 1rem;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.question-text {
+    display: inline-block;
+    padding-left:50px;
+    padding-right: 50px;
+    
+}
+.arrows-container {
+    margin: 0.4rem;
+}
+.item-answer {
+    display: none;
+    color: whitesmoke;
+    padding: 2rem;
+}
+.close {
+    display: none;
+}
+.show-answer .item-answer {
+    display: block;
+    background: #4b5f6d;
+}
+.show-answer .close {
+    display: inline;
+}
+.show-answer .expand {
+    display: none;
+}
+
         .custom-shape-divider-bottom-1694489467 {
             position: absolute;
             bottom: 0;
@@ -170,7 +230,81 @@
     </div>
 </section>
 <!--section ending-->
+<br><br>
+<h1>Frequently asked questions</h1>
+<div id="FAQs-container"></div>
+<script>
+    const faqData = [
+    {
+         question:"What is My Mental Wellness?",
+         answer:"My Mental Wellness” conducts some mental health assessments using Patient health Questionaire(PHQ-9),(PHQ-15) & (GAD-7) to evaluate the mental health status of the user based on their answers ."
+    },
+    {
+         question:"How does our website work?",
+         answer: "Our Website creates a bridge between institutions and students about student mental health and gives the analysis of student mental health state to the institution , so that the student's mental health is monitored."
+    },
+   
+    {
+        question: "What causes mental health issues?",
+        answer: "Biological factors, such as genes, physical illness, injury, or brain chemistry ,Life experiences, such as trauma or a history of abuse,Family history of mental health conditions"
+    },
+    {
+        question: "How common are mental disorders among 10-19-year-olds globally?",
+        answer: "Globally, one in seven 10-19-year-olds experiences a mental disorder, accounting for 13% of the global burden of disease in this age group."
+    },
+    {
+        question: "What happens if we don't support adolescents mental health?",
+        answer: "The consequences of failing to address adolescent mental health conditions extend to adulthood, impairing both physical and mental health and limiting opportunities to lead fulfilling lives as adults."
+    },
+    
+    {
+        question: "Where Can I Go To Find Therapy??",
+        answer: "Different kinds of therapy are more effective based on the nature of the mental health condition and/or symptoms and the person who has them (for example, children will benefit from a therapist who specializes in children’s mental health). However, there are several different types of treatment and therapy that can help."
+    },
+    
+   
+    
+    {
+        question: "How many die every year due to suicide?",
+        answer: "More than 700 000 people die due to suicide every year."},
+    {   
+        question: "What are some key statistics and risk factors related to suicide in the general population and among 15–29 year olds?",
+        answer: "For every suicide there are many more people who attempt suicide. A prior suicide attempt is an important risk factor for suicide in the general population. Suicide is the fourth leading cause of death among 15–29-year-olds."
+    },
+];
+const faqsContainer = document.getElementById('FAQs-container');
 
+faqData.map((item) => {
+
+    let faqItem = document.createElement('article');
+    faqItem.classList.add('faq-item');
+
+    let markup = `
+            <div class="item-question">
+                <span class="question-text">${item.question}</span>
+                <span class="arrows-container">
+                    <span class="expand">▼</span>
+                    <span class="close">▲</span>
+                </span>
+            </div>
+            <div class="item-answer">
+                <span>${item.answer}</span>
+            </div>
+    `;
+    
+    faqItem.innerHTML = markup;
+    faqsContainer.append(faqItem);
+});
+const toggleButtons = document.querySelectorAll('.arrows-container');
+    
+toggleButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        const faqItem = e.currentTarget.parentElement.parentElement;
+        faqItem.classList.toggle("show-answer");
+    });
+});
+</script>
+<br><br>
 
 <!--footer start-->
 <footer id="footer" class="mt-2 bg-dark p-3">   
